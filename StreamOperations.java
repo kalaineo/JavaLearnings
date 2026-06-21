@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.*;
 class Person{
     public String name;
@@ -54,7 +55,9 @@ class StreamOperations {
         System.out.println(" Persons Above 18" + above18.toString());
 
         // Getting name and age alone in HashMap
-        Map<String, Integer> nameAndAge = new HashMap <>();
-
+        Map<String, Integer> nameAndAge = persons.stream().filter(
+            (person)->person.age >18
+        ).collect(Collectors.toMap(p->p.name, p->p.age));
+        System.out.println(nameAndAge.toString());
     }
 }
