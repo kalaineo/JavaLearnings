@@ -59,5 +59,10 @@ class StreamOperations {
             (person)->person.age >18
         ).collect(Collectors.toMap(p->p.name, p->p.age));
         System.out.println(nameAndAge.toString());
+
+        // Just looping through map
+        for(var entry : nameAndAge.entrySet()) {
+            System.out.println("\n "+entry.getKey()+" : "+entry.getValue());
+        }
     }
 }
